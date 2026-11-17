@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register | College Elections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="/" class="brand">College Elections</a>
+        <nav>
+            <a href="{{ url_for('login') }}">Log in</a>
+        </nav>
+    </header>
+
+    <main class="auth">
+        <section class="auth-copy">
+            <h1>Create your voter account</h1>
+            <p class="lead">
+                You only need to do this once. Use the same email and
+                registration number your college has on record.
+            </p>
+            <ul class="checklist">
+                <li>Your college email address</li>
+                <li>Your registration number</li>
+                <li>A password of at least 8 characters</li>
+            </ul>
+        </section>
+
+        <div class="form-card">
+            <h2>Register</h2>
+
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <p class="message" role="alert">{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+
+            <form method="POST">
+                <div class="field">
+                    <label for="name">Full name</label>
+                    <input type="text" id="name" name="name"
+                           autocomplete="name" required>
+                </div>
+
+                <div class="field">
+                    <label for="email">College email</label>
+                    <input type="email" id="email" name="email"
+                           autocomplete="email" required>
+                </div>
+
+                <div class="field">
+                    <label for="registration_number">Registration number</label>
+                    <input type="text" id="registration_number"
+                           name="registration_number" required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password"
+                           minlength="8" autocomplete="new-password"
+                           aria-describedby="password-hint" required>
+                    <span class="hint" id="password-hint">At least 8 characters.</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Create account</button>
+            </form>
+
+            <p class="alt">
+                Already registered? <a href="{{ url_for('login') }}">Log in</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p><a href="/">Back to home</a></p>
+    </footer>
+
+</body>
+</html>

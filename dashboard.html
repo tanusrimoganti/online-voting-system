@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | College Elections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="{{ url_for('dashboard') }}" class="brand">College Elections</a>
+        <nav>
+            <a href="{{ url_for('logout') }}">Log out</a>
+        </nav>
+    </header>
+
+    <main class="dash">
+        <h1>Welcome, {{ name }}</h1>
+        <p class="lead">
+            Read about the candidates, cast your vote, and check the results
+            once the election closes.
+        </p>
+
+        <div class="dash-actions">
+            <a href="{{ url_for('vote') }}" class="action action-primary">
+                <span class="action-title">Cast your vote</span>
+                <span class="action-desc">Pick a candidate for each post and confirm. You can only vote once.</span>
+            </a>
+
+            <a href="{{ url_for('candidates') }}" class="action">
+                <span class="action-title">View candidates</span>
+                <span class="action-desc">See who is standing and what they are promising.</span>
+            </a>
+
+            <a href="{{ url_for('result') }}" class="action">
+                <span class="action-title">Election results</span>
+                <span class="action-desc">Check the final count after voting closes.</span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Questions about an election? Contact your college election committee.</p>
+    </footer>
+
+</body>
+</html>

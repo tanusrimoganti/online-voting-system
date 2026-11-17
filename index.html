@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Voting System | College Elections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="/" class="brand">College Elections</a>
+        <nav>
+            <a href="/login">Log in</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <h1>One student, one vote, from wherever you are.</h1>
+                <p class="lead">
+                    Register with your college ID, log in, and cast your ballot
+                    in under a minute. Your vote is counted once and kept private.
+                </p>
+                <div class="actions">
+    <a href="{{ url_for('register') }}" class="btn btn-primary">Register to vote</a>
+    <a href="{{ url_for('login') }}" class="btn btn-secondary">I already have an account</a>
+</div>
+                </div>
+            </div>
+
+            <figure class="ballot" aria-label="Example of the ballot you will see">
+                <figcaption>Sample ballot. Not a real vote.</figcaption>
+                <h2>Student Council President</h2>
+                <ul>
+                    <li>
+                        <span class="box"></span>
+                        <span class="name">Aarav Reddy</span>
+                        <span class="dept">Mechanical, 3rd year</span>
+                    </li>
+                    <li class="picked">
+                        <span class="box">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6"/></svg>
+                        </span>
+                        <span class="name">Meera Iyer</span>
+                        <span class="dept">Computer Science, 3rd year</span>
+                    </li>
+                    <li>
+                        <span class="box"></span>
+                        <span class="name">Kiran Babu</span>
+                        <span class="dept">Civil, 2nd year</span>
+                    </li>
+                </ul>
+            </figure>
+        </section>
+
+        <section class="steps">
+            <h2>How voting works</h2>
+            <ol>
+                <li>
+                    <h3>Register</h3>
+                    <p>Create an account with your college ID and email.</p>
+                </li>
+                <li>
+                    <h3>Log in</h3>
+                    <p>Sign in when an election is open for your department.</p>
+                </li>
+                <li>
+                    <h3>Cast your vote</h3>
+                    <p>Pick a candidate for each post and confirm. You can't vote twice.</p>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Questions about an election? Contact your college election committee.</p>
+    </footer>
+
+</body>
+</html>
